@@ -46,7 +46,7 @@ def get_commitments(investor_id: int, asset_class: str) -> List[Commitment]:
 
   return result
 
-@app.get("/api/assetclasses")
+@app.get("/api/asset_classes")
 def get_assetClasses() -> List[str]:
   AVAILABLE_ASSETS: List[str] = []
   for commitment in data["commitments"]:
