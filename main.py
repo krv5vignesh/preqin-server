@@ -45,3 +45,11 @@ def get_commitments(investor_id: int, asset_class: str) -> List[Commitment]:
       result.append(parsed_commitment)
 
   return result
+
+@app.get("/api/assetclasses")
+def get_assetClasses() -> List[str]:
+  AVAILABLE_ASSETS: List[str] = []
+  for commitment in data["commitments"]:
+    if commitment["asset_class"] not in AVAILABLE_ASSETS:
+      AVAILABLE_ASSETS.append(commitment["asset_class"])
+  return AVAILABLE_ASSETS
